@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+	<meta charset="utf-8">
+	<title>Bilsib | Кровельные работы</title>
+	<meta name="description" content="Startup HTML template OptimizedHTML 5">
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="css/app.min.css">
+
+	<!-- Favicons go there -->
+	<link rel="apple-touch-icon" sizes="57x57" href="images/dest/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="images/dest/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/dest/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="images/dest/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/dest/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="images/dest/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="images/dest/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="images/dest/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="images/dest/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="images/dest/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="images/dest/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="images/dest/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="images/dest/favicon/favicon-16x16.png">
+	<link rel="manifest" href="images/dest/favicon/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="images/dest/favicon/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+	<style>
+		*,
+		::before,
+		::after {
+			box-sizing: border-box;
+			padding: 0;
+			margin: 0;
+		}
+
+		.lh--1 {
+			line-height: 1;
+		}
+
+		.ls--n {
+			list-style: none;
+		}
+
+		.m0 {
+			margin: 0;
+		}
+
+		.gNav-mask {
+			background-color: rgba(0, 0, 0, 0.5);
+			bottom: 0;
+			left: 0;
+			opacity: 0;
+			position: fixed;
+			right: -35px;
+			top: 0;
+			transition: opacity .2s, visibility 0s .2s;
+			visibility: hidden;
+			z-index: 999;
+			cursor: pointer;
+		}
+
+		.gNav-mask-appear {
+			opacity: 1;
+			transition: opacity .2s;
+			visibility: visible;
+		}
+
+		.gNav {
+			background: rgb(56, 71, 126);
+			background: linear-gradient(175deg, rgba(56, 71, 126, 1) 23%, rgba(110, 162, 173, 1) 60%);
+			height: 100vh;
+			max-width: 250px;
+			overflow: auto;
+			padding: 30px;
+			position: fixed;
+			left: 0;
+			top: 0;
+			transform: translateX(-75%);
+			visibility: visible;
+			transition: transform .2s, visibility 0s .2s;
+			width: 85%;
+			z-index: 999;
+			color: #fff;
+			text-align: center;
+		}
+
+		.gNav-open {
+			transform: translateX(0);
+			transition: transform .2s;
+			visibility: visible;
+		}
+
+		.searchBox {
+			margin: 0 auto 50px;
+		}
+
+		.searchCharaInput {
+			--h: 50px;
+			background: #fff;
+			border-radius: calc(var(--h) / 2);
+			border: 1px solid #a6a6a6;
+			color: #000;
+			font-family: inherit;
+			font-size: calc(1rem + 2px);
+			height: var(--h);
+			outline: 0;
+			padding: 0 calc(var(--h) / 2);
+			-webkit-appearance: none;
+			width: 100%;
+		}
+
+		.searchCharaInput:hover,
+		.searchCharaInput:focus {
+			border: none;
+			box-shadow: 0 3px 12px rgba(0, 0, 0, 0.23), 0 3px 12px rgba(0, 0, 0, 0.16);
+		}
+
+		.gNavInner {
+			visibility: hidden;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			height: 100%;
+		}
+
+		.gNavInner a {
+			color: inherit;
+			text-decoration: none;
+		}
+
+		.gNav-link1 {
+			color: inherit;
+			display: inline-block;
+			font-size: 24px;
+			font-weight: bold;
+			line-height: 1;
+			margin-top: 27px;
+			outline: 0;
+			padding: 8px 0;
+			text-decoration: none;
+		}
+
+		.gNav-link1-home {
+			margin: 0;
+		}
+
+		.gNav-link2 {
+			display: inline-block;
+			color: inherit;
+			font-size: 16px;
+			text-decoration: none;
+			outline: 0;
+			padding: 9px 0;
+		}
+
+		.gNav-link1:active,
+		.gNav-link1:focus,
+		.gNav-link1:hover,
+		.gNav-link2:active,
+		.gNav-link2:focus,
+		.gNav-link2:hover {
+			color: #005af0;
+		}
+
+		.gNav-closeBtn,
+		.gNav-openBtn {
+			--line_h: 2px;
+			--btn_pLR: 13px;
+			background: #2d3b6c;
+			top: 24px;
+			border: none;
+			cursor: pointer;
+			height: 35px;
+			outline: 0;
+			position: fixed;
+			right: 14px;
+			width: 35px;
+			transform: rotate(45deg);
+		}
+
+		.gNav-openBtn {
+			--btn_pTB: 16px;
+			padding: var(--btn_pTB) var(--btn_pLR);
+			z-index: 1000;
+		}
+
+		.gNav-closeBtn {
+			display: none;
+			z-index: 1001;
+		}
+
+
+		.gNav-line::before,
+		.gNav-line::after,
+		.gNav-closeBtn::before,
+		.gNav-closeBtn::after {
+			content: "";
+		}
+
+		.gNav-openBtn::before {
+			top: var(--btn_pTB);
+		}
+
+		.gNav-openBtn::after {
+			bottom: var(--btn_pTB);
+		}
+
+		.gNav-line::before,
+		.gNav-line::after,
+		.gNav-closeBtn::before,
+		.gNav-closeBtn::after,
+		.gNav-line {
+
+
+			position: absolute;
+			height: 2px;
+			width: 22px;
+			border-radius: 5px;
+			left: 50%;
+			margin-left: -11px;
+			top: 50%;
+			margin-top: -1px;
+			background: #fff;
+		}
+
+		.gNav-line {
+			display: block;
+			transform: rotate(-45deg);
+		}
+
+		.gNav-line::before {
+			top: 7px;
+		}
+
+		.gNav-line::after {
+			top: -5px;
+		}
+
+		.gNav-closeBtn::before {
+			transform: rotate(0deg);
+		}
+
+		.gNav-closeBtn::after {
+			transform: rotate(-85deg);
+		}
+
+
+		.popup {
+			visibility: visible;
+			opacity: 1;
+			width: 100%;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			background-color: rgba(15, 15, 15, 0.5);
+			z-index: 99;
+			position: fixed;
+			top: 0;
+
+		}
+
+		.form {
+			padding: 30px 40px;
+
+		}
+
+		.form-control {
+			margin-bottom: 10px;
+			padding-bottom: 20px;
+			position: relative;
+		}
+
+		.form-control label {
+			display: inline-block;
+			margin-bottom: 5px;
+		}
+
+		.form-control input {
+			border: 2px solid #f0f0f0;
+			border-radius: 4px;
+			display: block;
+			font-family: inherit;
+			font-size: 14px;
+			padding: 10px;
+			width: 100%;
+		}
+
+		.form-control input:focus {
+			outline: 0;
+			border-color: #777;
+		}
+
+		.form-control.success input {
+			border-color: #2ecc71;
+		}
+
+		.form-control.error input {
+			border-color: #e74c3c;
+		}
+
+		.form-control i {
+			visibility: hidden;
+			position: absolute;
+			top: 40px;
+			right: 10px;
+		}
+
+		.form-control.success i.fa-check-circle {
+			color: #2ecc71;
+			visibility: visible;
+		}
+
+		.form-control.error i.fa-exclamation-circle {
+			color: #e74c3c;
+			visibility: visible;
+		}
+
+		.form-control small {
+			color: #e74c3c;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			visibility: hidden;
+		}
+
+		.form-control.error small {
+			visibility: visible;
+		}
+
+		.form button {
+			background-color: #8e44ad;
+			border: 2px solid #8e44ad;
+			border-radius: 4px;
+			color: #fff;
+			display: block;
+			font-family: inherit;
+			font-size: 16px;
+			padding: 10px;
+			margin-top: 20px;
+			width: 100%;
+		}
+	</style>
+</head>
+
+<body class="ishome">
+
+	<!-- Start Header -->
+	<header>
+		<div class="gNav-mask" aria-hidden="true" tabindex="-1" onclick="gNavClose();"></div>
+		<div id="gNav-beforeE" tabindex="-1" onfocus="chgFocus('.gNav-closeBtn');"></div>
+		<div class="gNav" id="menuList-C">
+			<button class="gNav-closeBtn" aria-label="Close global navigation menu" onclick="gNavClose();"></button>
+			<div id="gNav-afterE" tabindex="-1" onfocus="chgFocus('.searchCharaInput');"></div>
+			<button class="gNav-openBtn" aria-label="Open global navigation menu" aria-controls="menuList-C"
+				onclick="gNavOpen();"><span class="gNav-content"><span class="gNav-line"></span></span></button>
+			<div class="gNavInner">
+				<div class="gNavInner_top">
+
+
+					<img class="logo-img" src="images/logo.png" alt="">
+
+					<div class="logo-text">
+						Билсиб
+					</div>
+					<nav class="main-nav">
+						<ul>
+							<li class="main-nav__item"><a href="/" class="main-nav__link">Главная</a></li>
+							<li class="main-nav__item"><a href="vacancy.html" class="main-nav__link">Вакансия</a></li>
+							<li class="main-nav__item"><a href="about.html" class="main-nav__link">О нас</a></li>
+						</ul>
+					</nav>
+				</div>
+				<div class="gNavInner_bottom">
+					<button class="btn callback-btn">Заказать звонок</button>
+					<a class="phone" href="tel:77777">+7 951 383-87-20</a>
+					<div class="contacts">
+						<a class="address" href="#">
+							г.Новосибирск,<br>
+							ул. Владимировская 2/1, <br>
+							офис 001
+						</a>
+						<a href="mailto:bilsib@mail.ru">bilsib@mail.ru</a>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<!-- End Header -->
+	<!-- Start Main -->
+	<main>
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-10 col-md-12 col-sm-12">
+					<div class="row">
+						<div class="col-md-12">
+							<ul class="breadcrumbs">
+								<li class="breadcrumbs__item">
+									<a href="/" class="breadcrumbs__link">Главная</a>
+								</li>
+								<li class="breadcrumbs__item">
+									Кровельные работы
+								</li>
+							</ul>
+							<h1>Кровельные работы</h1>
+						</div>
+					</div>
+					<div class="category_item">
+						<div class="row">
+							<div class="col-md-7">
+								<img class="img-responsive" src="/images/work/work-image-1.jpg" alt="">
+							</div>
+							<div class="col-md-5">
+								<h2>Металлочерепица Cloudy,п. Муромский, ул.Крашенинникова, 14</h2>
+								<p>Текст состоит из некоторого количества предложений. Одно предложение, даже очень
+									распространенное, сложное, текстом назвать нельзя, поскольку текст можно расчленить на
+									самостоятельные предложения, а части предложения сочетаются по законам синтаксиса
+									сложного предложения, но не текста</p>
+								<div class="buttons-inner">
+									<a href="mettalocherepica-cloudy-p-muromskij-ul-krashennikova-14.html" class="btn btn_gallery">Фотогалерея</a>
+									<a href="crovelniye-raboty-price.html" class="btn btn_price">Прайс</a>
+								</div>
+							</div>
+							</div>
+						</div>
+						<div class="category_item">
+							<div class="row">
+								<div class="col-md-7">
+									<img class="img-responsive" src="/images/work/work-image-2.jpg" alt="">
+								</div>
+								<div class="col-md-5">
+									<h2>Металлочерепица Cloudy,п. Муромский, ул.Крашенинникова, 14</h2>
+									<p>Текст состоит из некоторого количества предложений. Одно предложение, даже очень
+										распространенное, сложное, текстом назвать нельзя, поскольку текст можно расчленить на
+										самостоятельные предложения, а части предложения сочетаются по законам синтаксиса
+										сложного предложения, но не текста</p>
+									<div class="buttons-inner">
+										<a href="mettalocherepica-cloudy-p-muromskij-ul-krashennikova-14.html" class="btn btn_gallery">Фотогалерея</a>
+										<a href="crovelniye-raboty-price.html" class="btn btn_price">Прайс</a>
+									</div>
+								</div>
+								</div>
+							</div>
+							<div class="category_item">
+								<div class="row">
+									<div class="col-md-7">
+										<img class="img-responsive" src="/images/work/work-image-1.jpg" alt="">
+									</div>
+									<div class="col-md-5">
+										<h2>Металлочерепица Cloudy,п. Муромский, ул.Крашенинникова, 14</h2>
+										<p>Текст состоит из некоторого количества предложений. Одно предложение, даже очень
+											распространенное, сложное, текстом назвать нельзя, поскольку текст можно расчленить на
+											самостоятельные предложения, а части предложения сочетаются по законам синтаксиса
+											сложного предложения, но не текста</p>
+										<div class="buttons-inner">
+											<a href="mettalocherepica-cloudy-p-muromskij-ul-krashennikova-14.html" class="btn btn_gallery">Фотогалерея</a>
+											<a href="crovelniye-raboty-price.html" class="btn btn_price">Прайс</a>
+										</div>
+									</div>
+									</div>
+								</div>
+				</div>
+				<div class="col-xl-2 col-md-12 col-sm-12">
+					<div class="row">
+						<div class="col-xl-12 col-md-6">
+							<a class="category-card category-card_inner">
+								<img src="images/icons/1.png" alt="" class="category-img category-img_inner">
+								<div
+									class="category-card__title category-card__title_active category-card__title_inner">
+									Кровельные работы</div>
+							</a>
+						</div>
+						<div class="col-xl-12 col-md-6">
+							<a class="category-card category-card_inner">
+								<img src="images/icons/2.png" alt="" class="category-img category-img_inner">
+								<div class="category-card__title category-card__title_inner">Фасадные работы</div>
+							</a>
+						</div>
+						<div class="col-xl-12 col-md-6">
+							<a class="category-card category-card_inner">
+								<img src="images/icons/3.png" alt="" class="category-img category-img_inner">
+								<div class="category-card__title category-card__title_inner">Отделочные работы</div>
+							</a>
+						</div>
+						<div class="col-xl-12 col-md-6">
+							<a class="category-card category-card_inner">
+								<img src="images/icons/4.png" alt="" class="category-img category-img_inner">
+								<div class="category-card__title category-card__title_inner">Бетонные работы</div>
+							</a>
+						</div>
+						<div class="col-xl-12 col-md-6">
+							<a class="category-card category-card_inner">
+								<img src="images/icons/5.png" alt="" class="category-img category-img_inner">
+								<div class="category-card__title category-card__title_inner">Высотные работы</div>
+							</a>
+						</div>
+						<div class="col-xl-12 col-md-6">
+							<a class="category-card category-card_inner">
+								<img src="images/icons/6.png" alt="" class="category-img category-img_inner">
+								<div class="category-card__title category-card__title_inner">Художественные работы</div>
+							</a>
+						</div>
+						<div class="col-xl-12 col-md-6">
+							<a class="category-card category-card_inner">
+								<img src="images/icons/7.png" alt="" class="category-img category-img_inner">
+								<div class="category-card__title category-card__title_inner">Благоустройство территории
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+	</main>
+	<!-- End Main -->
+	<script src="js/app.js"></script>
+</body>
+
+
+<script>
+	const bodyE = document.body;
+	const gNavMaskE = document.querySelector('.gNav-mask');
+	const gNavBeforeE = document.querySelector('#gNav-beforeE');
+	const gNavAfterE = document.querySelector('#gNav-afterE');
+	const gNavE = document.querySelector('.gNav');
+	const searchCharaInputE = document.querySelector('.searchCharaInput');
+	const gNavCloseBtn = document.querySelector('.gNav-closeBtn');
+	const gNavOpenBtn = document.querySelector('.gNav-openBtn');
+	const eExcludingHeader = document.querySelectorAll('body > *:not(header)');
+	const gNavInner = document.querySelector('.gNavInner');
+
+	function gNavOpen() {
+		bodyE.style.overflow = "hidden";
+		for (let i = 0; i < eExcludingHeader.length; i++) {
+			eExcludingHeader[i].setAttribute("aria-hidden", "true");
+		}
+		gNavBeforeE.setAttribute("tabindex", "0");
+		gNavAfterE.setAttribute("tabindex", "0");
+		gNavMaskE.classList.add('gNav-mask-appear');
+		gNavE.classList.add('gNav-open');
+		gNavCloseBtn.style.display = "block";
+		gNavInner.style.visibility = "visible";
+		window.setTimeout(() => { searchCharaInputE.focus(); }, 200)
+
+		window.addEventListener('keydown', (e) => {
+			if (e.keyCode === 27) { gNavClose(); }
+		});
+	}
+
+	function gNavClose() {
+		bodyE.removeAttribute('style');
+		for (let i = 0; i < eExcludingHeader.length; i++) {
+			eExcludingHeader[i].setAttribute("aria-hidden", "false");
+		}
+		gNavBeforeE.setAttribute("tabindex", "-1");
+		gNavAfterE.setAttribute("tabindex", "-1");
+		gNavMaskE.classList.remove('gNav-mask-appear');
+		gNavE.classList.remove('gNav-open');
+		gNavCloseBtn.style.display = "none";
+		gNavInner.style.visibility = "hidden";
+		gNavOpenBtn.focus();
+	}
+
+	function chgFocus(elem) { document.querySelector(elem).focus(); }
+
+</script>
+
+</html>
