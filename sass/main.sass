@@ -1,0 +1,169 @@
+@import config
+
+// Start header styles
+
+*, ::before, ::after
+
+
+
+
+.logo-img
+    max-width: 120px
+    border-bottom: 2px solid #fff
+    padding-bottom: 20px
+    margin-bottom: 20px
+
+.logo-text
+    font-size: 33px
+    text-transform: uppercase
+    margin-bottom: $gutter*2
+
+.main-nav
+    text-transform: uppercase
+    list-style: none
+    font-size: 23px
+    line-height: 1.2
+    color: #ffff
+    display: flex
+    flex-direction: columm
+    justify-content: center
+    &__item
+        list-style: none
+        margin-bottom: 20px
+    &__link
+        color: inherit
+        text-decoration: none
+        padding-bottom: 5px
+        transition: text-decoration .25s ease, opacity .25s ease
+        &:hover, &:focus
+            color: inherit
+            opacity: 0.6
+        &_active
+            border-bottom: 2px solid #fff
+
+
+
+.callback-btn
+    font-size: 18px
+    background-color: transparent
+    border: 1px solid #fff
+    padding: 5px 15px
+    text-transform: none
+    font-weight: 400
+    margin-bottom: $gutter  
+
+.phone
+    font-size: 20px
+    margin-bottom: $gutter
+    display: block
+
+.address 
+    margin-bottom: $gutter/2
+
+.contacts
+    font-size: 14px
+    a
+        display: block
+
+main
+    padding: $gutter*2 0
+
+
+.category-card
+    background: #8ec4ce
+    min-height: 300px
+    margin-bottom: $gutter
+    padding-top: $gutter*3
+    padding-bottom: $gutter*1.5
+    text-decoration: none
+    padding-right: $gutter/2
+    padding-left: $gutter/2
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    align-items: center
+    cursor: pointer
+    text-align: center
+    transition: background .25s ease
+    &:hover,&:focus
+        background: #6592a5
+        svg
+            
+    &_active
+
+    &__title
+        color: #fff
+        text-transform: uppercase
+        max-width: 180px
+        font-size: 19px
+        line-height: 1.2
+        position: relative
+        &_inner
+            font-size: 14px
+        &::before
+            content: ''
+            display: block
+            position: absolute
+            width: 120px
+            height: 2px
+            left: 0
+            right: 0
+            background: #fff
+            left: 50%
+            margin-left: -60px
+            top: -15px
+    &_inner
+        padding-top: $gutter
+        padding-right: $gutter*0.5
+        padding-left: $gutter*0.5
+        padding-bottom: $gutter
+        min-height: auto
+.category-img
+    &_inner
+        margin-bottom: $gutter*2
+        max-width: 70px
+.about-us-image
+    margin-bottom: 20px
+
+.contact-us
+    display: flex
+    justify-content: space-between
+    list-style: none
+    padding-top: $gutter
+    flex-wrap: wrap
+    font-size: 15px
+    border-top: 2px solid #7e9e9d
+    &__item
+        width: 50%
+        margin-bottom: $gutter*0.5
+        a
+            text-decoration: none
+    &__icon
+        margin-right: $gutter
+        color: #4a7393
+
+
+.vacancy
+    margin-bottom: $gutter*2
+
+.buttons-inner
+    display: flex
+    justify-content: space-between
+
+.category_item
+    margin-bottom: $gutter
+
+.image-box
+    margin-bottom: $gutter
+    img
+        max-width: 100%
+        transition: all 0.3s
+        display: block
+        width: 100%
+        height: auto
+        transform: scale(1)
+
+    &:hover img
+        transform: scale(1.1)
+
+@import "media" // Always at the end

@@ -1,0 +1,167 @@
+// IMPORT SECTION
+
+@import 'node_modules/bootstrap/scss/bootstrap-reboot.scss' // Bootstrap Reboot collection
+@import 'node_modules/bootstrap/scss/mixins/_breakpoints.scss' // Bootstrap Breakpoints mixin
+@import '../font-awesome/scss/font-awesome.scss' // Fontawesome
+@import '../libs/fancybox/jquery.fancybox.min.css' // Fancybox
+@import 'node_modules/bootstrap/scss/bootstrap-grid.scss' // Optional Bootstrap Grid
+@import 'node_modules/bootstrap/scss/utilities/_sizing.scss' // Optional Bootstrap Utilites
+
+
+
+
+// Bootstrap compatible gutter variable => $gutter
+
+$grid-gutter-width: 20px
+$gutter: $grid-gutter-width
+
+
+// FONTS LOAD SECTION
+
+@mixin font-face($font-family, $file-path, $weight: normal, $style: normal, $asset-pipeline: false )
+	@font-face
+		font-family: $font-family
+		font-weight: $weight
+		font-style: $style
+
+		@if $asset-pipeline == true 
+			src: font-url('#{$file-path}.eot')
+			src: font-url('#{$file-path}.eot?#iefix') format('embedded-opentype'), font-url('#{$file-path}.woff') format('woff'), font-url('#{$file-path}.ttf') format('truetype')
+		@else
+			src: url('#{$file-path}.eot')
+			src: url('#{$file-path}.eot?#iefix') format('embedded-opentype'), url('#{$file-path}.woff') format('woff'), url('#{$file-path}.ttf') format('truetype')
+
+
+
++font-face("roboto-g", "../fonts/RobotoRegular/RobotoRegular", 400)
++font-face("roboto-g", "../fonts/RobotoBold/RobotoBold", 700)
++font-face("roboto-g", "../fonts/RobotoMedium/RobotoMedium", 500)
++font-face("roboto-g", "../fonts/RobotoBlack/RobotoBlack", 800)
++font-face("baron-g", "../fonts/BaronBlack/BaronBlack", 800)
++font-face("baron-g", "../fonts/BaronBold/BaronBold", 700)
+
+
+// USER VARIABLES SECTION
+
+$accent: #ec1c1c // Accent Color
+$dark: #202222 // Dark Color
+$dark-blue: #1c2026 Dark Footer Color
+$fontsize: 14px // Body Font Size
+$textcolor: #333 // Text Color
+$system: -apple-system, BlinkMacSystemFont, Arial, sans-serif // System Font Family
+$main-font: roboto-g, sans-serif // Roboto Font Family
+
+// GENERAL DOCUMENT STYLES
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+input, textarea
+	outline: none
+	&:focus:required:invalid
+		border-color: red
+	&:required:valid
+		border-color: green
+
+body
+	font-family: $main-font
+	font-size: $fontsize
+	min-width: 320px
+	position: relative
+	line-height: 1.5
+	overflow-x: hidden
+	color: $textcolor
+
+h1,h2,h3,h4,h5,h6
+	font-weight: 400
+	margin-bottom: $gutter*0.5
+
+p
+	margin-bottom: $gutter
+a
+	color: #5768a0
+	text-decoration: underline
+	&:focus, &:hover
+		color: #5768a0
+
+.img-responsive
+	max-width: 100%
+
+.btn
+	outline: none
+	font-family: "roboto-g"
+	font-weight: 400
+	font-size: 18px
+	border: none
+	background: #516f93
+	color: #ffffff
+	padding: 15px 20px
+	text-transform: uppercase
+	transition: background .25s ease
+	cursor: pointer
+	text-decoration: none
+	&:hover, &:focus
+		background: #8ec4ce
+		text-decoration: none
+		color: #fff
+	&_price
+		background: #8cc5cc
+		&:hover, &:focus
+			background: #6791a7
+	&_gallery
+		background: #516f91
+		&:hover, &:focus
+			background: #3d516a
+	&_back
+		width: 100%
+		position: relative
+		vertical-align: top
+		margin-bottom: $gutter
+		&::before
+			content: ''
+			display: inline-block
+			width: 10px
+			height: 10px
+			background: transparent
+			border-left: 1px solid #fff
+			border-top: 1px solid #fff
+			transform: rotate(-45deg)
+			margin-right: 5px
+			
+		
+	
+.breadcrumbs
+	list-style: none
+	margin-bottom: 20px
+	&__item
+		display: inline-block
+		margin-right: 15px
+		position: relative
+		&::after
+			content: '/'
+			position: absolute
+			right: -15px
+		&:last-child
+			margin-right: 0
+			&::after
+				content: none
+
+table, th, td
+	border: 1px solid #dedede
+
+th,td 
+	padding: $gutter*0.3
+table, tbody
+	width: 100%
+	overflow: scroll
+th
+	background: #dddddd
+	font-style: italic
+	font-weight: 500
+td
+	font-weight: 500
+
